@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<section>
+    <div>
+        <h1>{{ event.type }}</h1>
+          <h2>{{ event.name }}</h2>
+        <h3>{{ event.description }}</h3>
+        <p>{{ event.people }} people currently attending!</p>
+      </div>
+    
+</section>
+
+{% endblock %}
