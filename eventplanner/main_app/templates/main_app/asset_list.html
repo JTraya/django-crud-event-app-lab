@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %}
+
+<section class="page-header">
+  <h1>All Assets</h1>
+</section>
+
+<section class="card-container">
+  {% for asset in asset_list %}
+    <div>
+      <a href="{% url 'asset-detail' asset.id %}">
+        <div>
+          <h2>{{ asset.name }}</h2>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

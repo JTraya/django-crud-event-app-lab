@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block content %}
+
+<div>
+  <div>
+    <h2>{{ asset.name }}</h2>
+    <p>{{ asset.description }}</p>
+  </div>
+</div>
+<a href="{% url 'asset-update' asset.id %}">Edit</a>
+<a href="{% url 'asset-delete' asset.id %}">Delete</a>
+
+{% endblock %}
