@@ -53,4 +53,43 @@
   </section>
 </div>
 
+<section>
+  <div>
+    <h2>Assets</h2>
+  </div>
+
+  <h3>Requested Assets</h3>
+  <div>
+    {% if event.assets.count %} 
+      {% for asset in event.assets.all %}
+        <div>
+          <a href="{% url 'asset-detail' asset.id %}">
+            <p>{{ asset.name }}</p>
+            <form action="{% url 'remove-asset' event.id asset.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Remove Asset</button>
+            </form>
+            
+          </a>
+        </div>
+      {% endfor %} 
+    {% else %}
+      <p>Request some assets for this event if needed!</p>
+    {% endif %}
+  </div>
+
+  <h3>Available Assets</h3>
+  <div>
+    {% for asset in assets %}
+      <div>
+        <p>{{ asset.name }}</p>
+        <form action="{% url 'associate-toy' event.id asset.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Use Asset</button>
+        </form>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
 {% endblock %}
